@@ -2,6 +2,8 @@ name: 'Build style and deploy docker image'
 
 on:
   push:
+  release:
+    types: [published]
 
 permissions:
   contents: write
