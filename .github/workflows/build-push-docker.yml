@@ -29,6 +29,7 @@ jobs:
           path: src/assets/styles/style.css
 
   build-and-push-image:
+    needs: build-css
     runs-on: ubuntu-latest
     # Sets the permissions granted to the `GITHUB_TOKEN` for the actions in this job.
     permissions:
