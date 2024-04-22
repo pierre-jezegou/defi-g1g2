@@ -53,6 +53,7 @@ body {
     display: flex;
     flex-direction: column;
     row-gap: 75px;
+    overflow-x: hidden;
 
     // max-width: 1500px;
     p {
@@ -127,7 +128,9 @@ header {
     }
 }
 
-
+section{
+    padding-bottom: 3em;
+}
 
 
 section.hero-banner {
@@ -219,19 +222,43 @@ section.hero-banner {
     .page-halos {
         .objectifs {
             left: -10%;
-            top: 1950px;
+            top: 2050px;
         }
 
         .justification {
-            left: 15%;
-            top: 2250px;
+            left: 5%;
+            top: 2350px;
         }
 
-        .middle-scores {
+        .justification-left1 {
             right: -5%;
-            top: 3000px;
+            top: 3250px;
+        }
+        .justification-left2 {
+            right: 5%;
+            top: 3550px;
+        }
+
+        .photos1{
+            left: -5%;
+            top: 4000px;
+        }
+        .photos1bis{
+            left: 5%;
+            top: 4250px;
+        }
+
+        .score1{
+            right: -5%;
+            top: 5100px;
+        }
+
+        .score2{
+            right: -10%;
+            top: 5450px;
         }
     }
+    
 }
 
 
@@ -324,19 +351,23 @@ section.justification {
     scroll-behavior: smooth;
 
     div.carousel {
+        padding-top: 2rem;
         display: flex;
         column-gap: 3em;
         overflow-y: hidden;
+        overflow-x: scroll;
+        width: 100%;
 
         .card {
-            display: block;
+            display: flex;
+            flex-direction: column;
+            min-width: 800px;
             justify-content: center;
             background-color: rgba(132, 125, 208, 0.128);
             backdrop-filter: blur(50px);
             -webkit-backdrop-filter: blur(50px);
             border-radius: 2em;
             padding: 1em 2em;
-            width: 600px;
 
             h3 {
                 text-transform: uppercase;
@@ -368,10 +399,17 @@ section.justification {
                 img {
                     border-radius: 1em;
                     object-fit: cover;
-                    width: 200px;
-                    height: 200px;
+                    width: 175px;
+                    height: 175px;
                 }
 
+            }
+            &:first-child{
+                margin-left: 350px;
+            }
+    
+            &:last-child{
+                margin-right: 500px;
             }
         }
     }
@@ -511,7 +549,6 @@ footer {
     display: flex;
     justify-content: center;
     align-items: center;
-    // background-color: red;
     font-size: small;
     color: $secondary-color;
 
@@ -523,10 +560,12 @@ footer {
 
         h4 {
             margin-bottom: 0.5rem;
+            text-transform: uppercase;
         }
 
         a {
             color: $secondary-color;
+            transition: 0.15s ease;
 
             &:hover {
                 color: $main-color;
@@ -537,7 +576,7 @@ footer {
             li {
                 text-decoration: none;
                 list-style: none;
-                line-height: 1.5em;
+                line-height: 1.75em;
             }
         }
 
@@ -554,7 +593,7 @@ footer {
                 a.logo {
                     height: 20px;
                     width: 20px;
-                    background-color: $secondary-color;
+                    // background-color: $secondary-color;
                     border-radius: 0.5em;
                 }
             }
@@ -562,64 +601,165 @@ footer {
     }
 }
 
+.container {
+    width: $page-width;
+    padding-inline: 2rem;
+}
 
 
 section.deroule {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
+    overflow-x: hidden;
 
     .container {
         width: $page-width;
-
+        overflow-x: hidden;
         h2 {
             text-align: left;
         }
 
-        .frise-chronologique {
-            margin-top: 2rem;
-            display: flex;
-            column-gap: 5rem;
-            .card {
-                width: 300px;
-                position: relative;
-                padding-bottom: 3rem;
-                padding-left: 1rem;
-                border-left: 1px solid $main-color;
-                
-                &::before {
-                    content: "";
-                    position: absolute;
-                    width: 20px;
-                    height: 20px;
-                    background-color: $main-color;
-                    border-radius: 50%;
-                    left: -(0.70rem);
-                    bottom: 0;
-                }
-                
-                h4 {
-                    margin-bottom: 0.5em;
-                }
-                
-                p {
-                    font-size: small;
-                    color: $secondary-color;
-                }
-                
-                .date {
-                    position: absolute;
-                    left: -42px;
-                    top: 25px;
-                    text-align: right;
-                    color: $secondary-color;
-                    // background-color: red;
-                    transform: rotate(-90deg);
-                    font-size: x-small;
-                    font-weight: lighter;
+    }
+    .frise-chronologique {
+        margin-top: 2rem;
+        display: flex;
+        column-gap: 5rem;
+        // border-bottom: 2px dashed $secondary-color;
+        overflow-x: scroll;
+        overflow-y: hidden;
+        padding: 20px 0;
+        width: 100%;
+        min-width: 100%;
+        scroll-snap-type: x mandatory;
+        position: relative;;
 
+        &::after {
+            content: "";
+            position: absolute;
+            width: 362%;
+            height: 0;
+            border-top: 2px dashed $secondary-color;
+            bottom: 20px;
+
+        }
+
+        .card {
+            width: 300px;
+            min-width: 300px;
+            position: relative;
+            padding-bottom: 3rem;
+            padding-left: 1rem;
+            border-left: 1px solid $main-color;
+            
+            &::before {
+                content: "";
+                position: absolute;
+                width: 20px;
+                height: 20px;
+                background-color: $main-color;
+                border-radius: 50%;
+                left: -(0.70rem);
+                bottom: -10px;
+                z-index: 2;
+            }
+            
+            h4 {
+                margin-bottom: 0.5em;
+            }
+            
+            p {
+                font-size: small;
+                padding-bottom: 1em;
+            }
+            
+            .date {
+                position: absolute;
+                left: -20px;
+                top: -10px;
+                // text-align: right;
+                color: $secondary-color;
+                transform-origin: bottom left;
+                transform: rotate(90deg);
+                font-size: x-small;
+                font-weight: lighter;
+
+            }
+
+            .labels{
+                margin-top: 1em;
+                display: inline;
+                span{
+                    font-size: x-small;
+                    padding: 0.2em 0.5em;
+                    background-color: $secondary-color;
+                    border-radius: 0.75em;
+                    line-height: 2em;
+                }
+            }
+
+            &:first-child{
+                margin-left: calc((100% - $page-width)/2);
+            }
+
+            &:last-child{
+                margin-right: calc((100% - $page-width)/2);
+            }
+            
+        }
+    }
+}
+
+
+.photos{
+    display: flex;
+    justify-content: center;
+
+    .images{
+        margin-top: 2em;
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        grid-auto-rows: 400px;
+        gap: 2em;
+        
+        .image{
+            position: relative;
+            
+            img{
+                object-fit: cover;
+                width: 100%;
+                height: 100%;
+            }
+            .description{
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                background-color: rgba(31, 34, 48, 0.76);
+                width: 100%;
+                opacity: 0;
+                transition: 0.3s ease;
+                .image-title{
+                    padding: 1em;
                 }
                 
+                .image-description{
+                    padding-inline: 1em;
+                    margin-bottom: 1em;
+                    font-weight: lighter;
+                    font-size: small;
+                    .credits-photo{
+                        margin-top: 0.5rem;
+                        text-align: right;
+                        font-size: xx-small;
+                    }
+                }
+
+            }
+            &:hover{
+                .description{
+                opacity: 1;
+                }
             }
         }
     }
