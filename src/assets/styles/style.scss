@@ -361,7 +361,7 @@ section.justification {
         .card {
             display: flex;
             flex-direction: column;
-            min-width: 600px;
+            min-width: 800px;
             justify-content: center;
             background-color: rgba(132, 125, 208, 0.128);
             backdrop-filter: blur(50px);
@@ -399,8 +399,8 @@ section.justification {
                 img {
                     border-radius: 1em;
                     object-fit: cover;
-                    width: 200px;
-                    height: 200px;
+                    width: 175px;
+                    height: 175px;
                 }
 
             }
@@ -692,7 +692,7 @@ section.deroule {
                 display: inline;
                 span{
                     font-size: x-small;
-                    padding: 0.2em 1em;
+                    padding: 0.2em 0.5em;
                     background-color: $secondary-color;
                     border-radius: 0.75em;
                     line-height: 2em;
