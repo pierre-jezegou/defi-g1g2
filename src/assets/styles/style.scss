@@ -53,6 +53,7 @@ body {
     display: flex;
     flex-direction: column;
     row-gap: 75px;
+    overflow-x: hidden;
 
     // max-width: 1500px;
     p {
@@ -219,12 +220,12 @@ section.hero-banner {
     .page-halos {
         .objectifs {
             left: -10%;
-            top: 1950px;
+            top: 2050px;
         }
 
         .justification {
             left: 15%;
-            top: 2250px;
+            top: 2650px;
         }
 
         .middle-scores {
@@ -324,19 +325,23 @@ section.justification {
     scroll-behavior: smooth;
 
     div.carousel {
+        padding-top: 2rem;
         display: flex;
         column-gap: 3em;
         overflow-y: hidden;
+        overflow-x: scroll;
+        width: 100%;
 
         .card {
-            display: block;
+            display: flex;
+            flex-direction: column;
+            min-width: 600px;
             justify-content: center;
             background-color: rgba(132, 125, 208, 0.128);
             backdrop-filter: blur(50px);
             -webkit-backdrop-filter: blur(50px);
             border-radius: 2em;
             padding: 1em 2em;
-            width: 600px;
 
             h3 {
                 text-transform: uppercase;
@@ -372,6 +377,13 @@ section.justification {
                     height: 200px;
                 }
 
+            }
+            &:first-child{
+                margin-left: 350px;
+            }
+    
+            &:last-child{
+                margin-right: 500px;
             }
         }
     }
@@ -511,7 +523,6 @@ footer {
     display: flex;
     justify-content: center;
     align-items: center;
-    // background-color: red;
     font-size: small;
     color: $secondary-color;
 
@@ -523,6 +534,7 @@ footer {
 
         h4 {
             margin-bottom: 0.5rem;
+            text-transform: uppercase;
         }
 
         a {
@@ -537,7 +549,7 @@ footer {
             li {
                 text-decoration: none;
                 list-style: none;
-                line-height: 1.5em;
+                line-height: 1.75em;
             }
         }
 
@@ -554,7 +566,7 @@ footer {
                 a.logo {
                     height: 20px;
                     width: 20px;
-                    background-color: $secondary-color;
+                    // background-color: $secondary-color;
                     border-radius: 0.5em;
                 }
             }
@@ -562,65 +574,111 @@ footer {
     }
 }
 
+.container {
+    width: $page-width;
+}
 
 
 section.deroule {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
+    overflow-x: hidden;
 
     .container {
         width: $page-width;
-
+        overflow-x: hidden;
         h2 {
             text-align: left;
         }
 
-        .frise-chronologique {
-            margin-top: 2rem;
-            display: flex;
-            column-gap: 5rem;
-            .card {
-                width: 300px;
-                position: relative;
-                padding-bottom: 3rem;
-                padding-left: 1rem;
-                border-left: 1px solid $main-color;
-                
-                &::before {
-                    content: "";
-                    position: absolute;
-                    width: 20px;
-                    height: 20px;
-                    background-color: $main-color;
-                    border-radius: 50%;
-                    left: -(0.70rem);
-                    bottom: 0;
-                }
-                
-                h4 {
-                    margin-bottom: 0.5em;
-                }
-                
-                p {
-                    font-size: small;
-                    color: $secondary-color;
-                }
-                
-                .date {
-                    position: absolute;
-                    left: -42px;
-                    top: 25px;
-                    text-align: right;
-                    color: $secondary-color;
-                    // background-color: red;
-                    transform: rotate(-90deg);
-                    font-size: x-small;
-                    font-weight: lighter;
+    }
+    .frise-chronologique {
+        margin-top: 2rem;
+        display: flex;
+        column-gap: 5rem;
+        // border-bottom: 2px dashed $secondary-color;
+        overflow-x: scroll;
+        overflow-y: hidden;
+        padding: 20px 0;
+        width: 100%;
+        min-width: 100%;
+        scroll-snap-type: x mandatory;
+        position: relative;;
 
-                }
-                
+        &::after {
+            content: "";
+            position: absolute;
+            width: 200%;
+            height: 0;
+            border-top: 2px dashed $secondary-color;
+            // left: -40px;
+            bottom: 20px;
+
+        }
+
+        .card {
+            width: 300px;
+            min-width: 300px;
+            position: relative;
+            padding-bottom: 3rem;
+            padding-left: 1rem;
+            border-left: 1px solid $main-color;
+            
+            &::before {
+                content: "";
+                position: absolute;
+                width: 20px;
+                height: 20px;
+                background-color: $main-color;
+                border-radius: 50%;
+                left: -(0.70rem);
+                bottom: -10px;
+                z-index: 2;
             }
+            
+            h4 {
+                margin-bottom: 0.5em;
+            }
+            
+            p {
+                font-size: small;
+                padding-bottom: 1em;
+            }
+            
+            .date {
+                position: absolute;
+                left: -50px;
+                top: 28px;
+                text-align: right;
+                color: $secondary-color;
+                transform: rotate(-90deg);
+                font-size: x-small;
+                font-weight: lighter;
+
+            }
+
+            .labels{
+                margin-top: 1em;
+                display: inline;
+                span{
+                    font-size: x-small;
+                    padding: 0.2em 1em;
+                    background-color: $secondary-color;
+                    border-radius: 0.5em;
+                    line-height: 2em;
+                }
+            }
+
+            &:first-child{
+                margin-left: calc((100% - $page-width)/2);
+            }
+
+            &:last-child{
+                margin-right: calc((100% - $page-width)/2);
+            }
+            
         }
     }
 }
