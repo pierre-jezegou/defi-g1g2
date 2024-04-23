@@ -23,7 +23,7 @@ Le tuteur défi est l’interlocuteur privilégié de l’élève. Il doit discu
 Le site web dédié au défi a été containerisé pour faciliter son déploiement sur diverses plateformes. Tout le processus, depuis la compilation des styles (de SCSS à CSS) jusqu'au dépôt de l'image Docker sur https://dockerhub.com, est entièrement automatisé grâce à l'utilisation de GitHub Actions. Il ne reste plus qu'à l'hébergeur d'intégrer cette image dans son infrastructure.
 
 ```
-docker run -it -d --rm -p 8080:80 --name web pjezegou/defi-g1g2-website:latest
+docker run -it -d --rm -p 8080:8080 --name web pjezegou/defi-g1g2-website:latest
 ```
 
 ### A savoir
