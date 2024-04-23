@@ -132,6 +132,9 @@ header {
 section {
     margin-top: 1em;
     padding-bottom: 2em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 section.accueil {
@@ -266,6 +269,23 @@ section.accueil {
         .bottom-scores {
             left: 0;
         }
+    }
+
+
+
+    .mentions-legales1{
+        right: 0;
+        top: 100px;
+    }
+
+    .mentions-legales2{
+        right: -5%;
+        top: 500px;
+    }
+
+    .mentions-legales3{
+        right: 10%;
+        top: 350px;
     }
 }
 
@@ -445,7 +465,7 @@ section.scores {
     align-items: center;
     justify-content: center;
 
-    section.kpi-scores {
+    div.kpi-scores {
         max-width: $page-width;
 
         .kpis {
@@ -461,32 +481,38 @@ section.scores {
                 position: relative;
 
                 .text {
-                    position: absolute;
                     display: block;
                     width: 300px;
-
+                    padding-left: 2rem;
+                    
                     h3 {
                         text-transform: uppercase;
                     }
-
+                    
                     p {
                         font-size: small;
                     }
                 }
+                @media only screen and (min-width: 1050px){
 
-                &:nth-child(odd) {
-                    .text {
-                        left: 175px;
+                    .text{
+                        position: absolute;
+                        padding-left: 0;
                     }
-                }
-
-                &:nth-child(even) {
-                    .text {
-                        h3 {
-                            text-align: right;
+                    &:nth-child(odd) {
+                        .text {
+                            left: 175px;
                         }
+                    }
 
-                        left: -(50px + 300px);
+                    &:nth-child(even) {
+                        .text {
+                            h3 {
+                                text-align: right;
+                            }
+
+                            left: -(50px + 300px);
+                        }
                     }
                 }
             }
@@ -790,9 +816,12 @@ section.deroule {
                 display: flex;
                 flex-direction: column-reverse;
                 align-items: center;
-
                 .image {
+                    margin-top: 2rem;
                     padding-block: 2em;
+                    svg{
+                        height: 150px;
+                    }
                 }
 
             }
@@ -810,6 +839,23 @@ section.deroule {
                 row-gap: 2em;
 
             }
+        }
+    }
+}
+
+
+section.mentions-legales{
+    .container{
+        display: flex;
+        flex-direction: column;
+        align-items: baseline;
+        text-align: left;
+        row-gap: 2em;
+        p{
+            text-align: justify;
+        }
+        a {
+            color: $main-color;
         }
     }
 }
