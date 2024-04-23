@@ -92,6 +92,7 @@ jobs:
           push: true
           cache-from: type=local,src=/tmp/.buildx-cache
           cache-to: type=local,dest=/tmp/.buildx-cache
+          tags: "pjezegou/defi-g1g2-website:latest"
           
   deploy-sftp:
     needs: build-css
@@ -107,6 +108,7 @@ jobs:
         with:
           name: css
           path: src/assets/styles/
+
       - name: Deploy file
         uses: wlixcc/SFTP-Deploy-Action@v1.2.4
         with:
@@ -117,4 +119,3 @@ jobs:
             local_path: './src/*'
             remote_path: '.'
             sftp_only: true
-          tags: "pjezegou/defi-g1g2-website:latest"
