@@ -2,8 +2,6 @@ name: 'Build style and deploy website'
 
 on:
   push:
-    branches:
-      - main
   release:
     types: [published]
 
@@ -117,5 +115,5 @@ jobs:
             port: ${{ secrets.SFTP_PORT }}
             password: ${{ secrets.SFTP_PASSWORD }}
             local_path: './src/*'
-            remote_path: '.'
+            remote_path: ${{ secrets.SFTP_REMOTE_PATH }}
             sftp_only: true
