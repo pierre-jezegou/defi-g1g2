@@ -300,14 +300,27 @@ section.generalites {
         position: relative;
         row-gap: 3em;
 
-        &::before {
-            content: "";
-            position: absolute;
-            width: 0px;
-            height: 100%;
-            border-right: 2px dashed $secondary-color;
-            left: -40px;
-            top: 5px;
+        @media screen and (min-width: 585px){
+            &::before {
+                content: "";
+                position: absolute;
+                width: 0px;
+                height: 100%;
+                border-right: 2px dashed $secondary-color;
+                left: -40px;
+                top: 5px;
+            }
+
+            h2::before {
+                content: "";
+                position: absolute;
+                width: 20px;
+                height: 20px;
+                background-color: $main-color;
+                border-radius: 50%;
+                left: -50px;
+                top: 10%;
+            }
         }
     }
 
@@ -317,17 +330,6 @@ section.generalites {
         h2 {
             position: relative;
             text-transform: uppercase;
-        }
-
-        h2::before {
-            content: "";
-            position: absolute;
-            width: 20px;
-            height: 20px;
-            background-color: $main-color;
-            border-radius: 50%;
-            left: -50px;
-            top: 10%;
         }
 
         p {
