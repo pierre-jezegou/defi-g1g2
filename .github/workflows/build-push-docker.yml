@@ -2,6 +2,8 @@ name: 'Build style and deploy website'
 
 on:
   push:
+    branches:
+      - main
   release:
     types: [published]
 
