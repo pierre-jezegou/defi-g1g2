@@ -383,10 +383,11 @@ section.justification {
     align-items: center;
     overflow-x: hidden;
     scroll-behavior: smooth;
-    max-width: $page-width;
+    // max-width: $page-width;
     
     div.carousel {
-        padding-inline: 2rem;
+        max-width: $page-width;
+        // padding-inline: 2rem;
         // padding-top: 2rem;
         // display: flex;
         // column-gap: 3em;
@@ -395,13 +396,15 @@ section.justification {
         // overflow-x: scroll;
         // min-width: 100vw;
 
-        width: 100%;
+        // width: 100%;
+        max-width: $page-width;
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
         row-gap: 2em;
         padding-top: 2em;
+        padding-inline: 2em;
 
         
         .card {
@@ -413,6 +416,7 @@ section.justification {
             -webkit-backdrop-filter: blur(50px);
             border-radius: 2em;
             padding: 1em 2em;
+            // margin-inline: 2em;
             
             // &:first-child {
             //     margin-left: 350px;
